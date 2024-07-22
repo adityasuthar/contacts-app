@@ -1,0 +1,17 @@
+/* Custom styles */
+.contact-name {
+text-decoration: none;
+color: inherit;
+}
+
+.contact-name:hover {
+text-decoration: underline;
+color: #007bff;
+}
+
+/* Hover effect */
+.list-group-item:hover {
+transform: translateY(-3px); /* Move the element up */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+transition: all 0.3s ease; /* Smooth transition */
+}
