@@ -48,6 +48,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "contacts.middleware.AuthRequiredMiddleware",
+]
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
 ]
 
 ROOT_URLCONF = "contacts_project.urls"
@@ -119,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-
-# STATICFILES_DIRS = [BASE_DIR / "static"]
-# STATIC_ROOT = BASE_DIR / "staticfiles"
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = (
+    "contact_list"  # Change to the name of your contact list URL pattern
+)
+LOGOUT_REDIRECT_URL = "login"  # Change to the name of your login URL pattern
