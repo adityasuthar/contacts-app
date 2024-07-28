@@ -6,13 +6,11 @@ from .views import CustomLogoutView
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path(
         "login/",
         auth_views.LoginView.as_view(template_name="registration/login.html"),
         name="login",
     ),
-    # path("logout/", auth_views.LogoutView.as_view(next_page="login"), name="logout"),
     path(
         "logout/", CustomLogoutView.as_view(), name="logout"
     ),  # Use the custom logout view
@@ -22,5 +20,5 @@ urlpatterns = [
     path("contact/new/", views.contact_new, name="contact_new"),
     path("contact/<int:pk>/edit/", views.contact_edit, name="contact_edit"),
     path("contact/<int:pk>/delete/", views.contact_delete, name="contact_delete"),
-    path("accounts/", include("django.contrib.auth.urls")),
+    # path("accounts/", include("django.contrib.auth.urls")),
 ]
