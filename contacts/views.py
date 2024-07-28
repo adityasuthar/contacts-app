@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth import views as auth_views
+from django.urls import reverse
+from django.views import View
 
 # Create your views here.
 
@@ -84,8 +86,12 @@ def register(request):
         return render(request, "registration/register.html", {"form": form})
 
 
-class CustomLogoutView(auth_views.LogoutView):
-    next_page = "login"  # Use the name of your login URL pattern
+class CustomLogoutView(View):
+    # next_page = "login"  # Use the name of your login URL pattern
+
+    def get(self, request, *args, **kwargs):
+        print("get logout view")
+        return redirect(reverse("login"))
 
 
 # def logout_view(request):
