@@ -91,6 +91,7 @@ class CustomLogoutView(View):
 
     def get(self, request, *args, **kwargs):
         print("get logout view")
+        logout(request)
         return redirect(reverse("login"))
 
 
