@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Logged Out</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <h2>You have been logged out</h2>
-      <a href="{% url 'login' %}" class="btn btn-primary">Login again</a>
+{% extends "base.html" %}
+{% block title %}Logged Out{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="app-card my-5">
+        <div class="card-header text-center">Logged out</div>
+        <div class="card-body text-center">
+          <p class="mb-4">You have been logged out.</p>
+          <a href="{% url 'login' %}" class="btn btn-primary w-100">Login again</a>
+        </div>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
